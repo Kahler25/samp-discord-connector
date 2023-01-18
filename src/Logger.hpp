@@ -63,35 +63,33 @@ private:
 public:
 	inline bool IsLogLevel(samplog_LogLevel level)
 	{
-		return m_Logger.IsLogLevel(level);
+		return false;
 	}
 
 	template<typename... Args>
 	inline void Log(samplog_LogLevel level, const char *msg)
 	{
-		m_Logger.Log(level, msg);
+		return;
 	}
 
 	template<typename... Args>
 	inline void Log(samplog_LogLevel level, const char *format, Args &&...args)
 	{
-		auto str = fmt::format(format, std::forward<Args>(args)...);
-		m_Logger.Log(level, str.c_str());
+		return;
 	}
 
 	template<typename... Args>
 	inline void Log(samplog_LogLevel level, std::vector<AmxFuncCallInfo> const &callinfo,
 		const char *msg)
 	{
-		m_Logger.Log(level, msg, callinfo);
+		return;
 	}
 
 	template<typename... Args>
 	inline void Log(samplog_LogLevel level, std::vector<AmxFuncCallInfo> const &callinfo,
 		const char *format, Args &&...args)
 	{
-		auto str = fmt::format(format, std::forward<Args>(args)...);
-		m_Logger.Log(level, str.c_str(), callinfo);
+		return;
 	}
 
 	// should only be called in native functions
